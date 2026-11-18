@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PixelForge - Etapa 3: Identidade Visual e Tema Claro (WCAG AAA)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F3FB;
+  --surface: #FFFFFF;
+  --ink: #1B1740;
+  --muted: #4A4573;
+  --brand: #4B2FD0;
+  --brand-ink: #FFFFFF;
+  --hot: #D6246E;
+  --line: #C9C4E6;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: Figtree, system-ui, sans-serif; line-height: 1.6; }
+h1, h2, h3 { font-family: "Chakra Petch", system-ui, sans-serif; line-height: 1.15; margin: 0 0 .5em; }
+h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); max-width: 15ch; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.25rem; }
+section { padding: 3rem 0; }
+header.top { border-bottom: 1px solid var(--line); background: var(--surface); position: sticky; top: 0; z-index: 10; }
+header.top .wrap { display: flex; align-items: center; gap: 1rem; padding: .7rem 1.25rem; }
+.logo { font-family: "Chakra Petch", sans-serif; font-weight: 700; font-size: 1.35rem; text-decoration: none; color: var(--ink); margin-right: auto; }
+nav a { margin-right: 1rem; text-decoration: none; color: var(--ink); font-weight: 600; }
+.btn { font: inherit; font-weight: 700; border: 2px solid var(--brand); background: var(--brand); color: var(--brand-ink); padding: .55rem 1.1rem; border-radius: 6px; text-decoration: none; display: inline-block; }
+.hero .wrap { display: grid; gap: 2rem; grid-template-columns: 1.1fr .9fr; align-items: center; }
+.hero p.lead { font-size: 1.2rem; color: var(--muted); }
+.grid { display: grid; gap: 1.1rem; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1.2rem; }
+.explain { border-left: 6px solid var(--hot); }
+footer { background: var(--surface); border-top: 1px solid var(--line); padding: 2rem 0; margin-top: 2rem; }
+@media (max-width:760px) { .hero .wrap { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="#inicio">PixelForge</a>
+  <nav><a href="#como">Por onde começar</a><a href="#glossario">Glossário</a></nav>
+</div></header>
+
+<main>
+<section class="hero" id="inicio"><div class="wrap">
+  <div>
+    <h1>Monte um setup que roda o que você joga</h1>
+    <p class="lead">Um guia em português para entender hardware e periféricos gamer, sem decorar siglas: do FPS ao monitor certo para a sua placa de vídeo.</p>
+    <a class="btn" href="#glossario">Entender os termos</a>
+  </div>
+  <div role="img" aria-label="Ilustração de um monitor gamer exibindo 144 FPS">
+    <svg viewBox="0 0 360 270" aria-hidden="true">
+      <rect x="10" y="10" width="340" height="205" rx="14" fill="#241F4D"/>
+      <rect x="22" y="22" width="316" height="181" rx="6" fill="#0B0A1F"/>
+      <polyline fill="none" stroke="#6FE3F5" stroke-width="3" stroke-linejoin="round" points="30,150 60,120 90,135 120,90 150,100 180,70 210,85 240,60 270,72 300,48 330,55"/>
+      <text x="34" y="52" fill="#FF6FAE" font-family="Chakra Petch,sans-serif" font-size="30" font-weight="700">144 FPS</text>
+      <path d="M150 215h60l10 30H140z" fill="#241F4D"/><rect x="100" y="245" width="160" height="12" rx="6" fill="#241F4D"/>
+    </svg>
+  </div>
+</div></section>
+
+<section id="como"><div class="wrap">
+  <h2>Por onde começar</h2>
+  <div class="grid">
+    <article class="card explain"><h3>Placa de vídeo primeiro</h3><p>Na maioria dos jogos, é a peça que mais pesa no FPS. Defina o orçamento dela antes das demais.</p></article>
+    <article class="card explain"><h3>Monitor na medida</h3><p>Um monitor de taxa alta só vale a pena se o PC entregar FPS para acompanhar.</p></article>
+    <article class="card explain"><h3>Conforto conta</h3><p>Teclado, mouse e cadeira definem quantas horas você aguenta jogar.</p></article>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><p>PixelForge — Protótipo com Paleta WCAG AAA Aplicada.</p></div></footer>
+</body>
+</html>
