@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"
+  <title>PixelForge - Etapa 1: Esqueleto Estrutural (Wireframe)</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: monospace, sans-serif; background: #f8fafc; color: #0f172a; line-height: 1.5; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.25rem; }
+    header { border-bottom: 2px dashed #64748b; background: #ffffff; padding: 1rem 0; }
+    header .wrap { display: flex; justify-content: space-between; align-items: center; }
+    .wire-box { border: 2px dashed #64748b; background: #e2e8f0; padding: 1.25rem; margin-bottom: 1rem; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2rem; padding: 3rem 0; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding: 2rem 0; }
+    footer { border-top: 2px dashed #64748b; padding: 2rem 0; margin-top: 2rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <strong>[LOGO: PixelForge]</strong>
+      <nav>[Link: Glossário] | [Link: Setups] | [Link: Contato] | [Botão: Entrar]</nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero-grid">
+      <div class="wire-box">
+        <h1>[Título Principal H1: Monte um setup que roda o que você joga]</h1>
+        <p>[Parágrafo de apoio explicando o propósito do guia gamer]</p>
+        <button>[CTA: Entender os termos]</button>
+      </div>
+      <div class="wire-box" style="display:flex;align-items:center;justify-content:center;min-height:220px;">
+        [PLACEHOLDER SVG: Monitor Gamer 144 FPS]
+      </div>
+    </section>
+
+    <section>
+      <h2>[Seção: Por onde começar]</h2>
+      <div class="grid-3">
+        <div class="wire-box">[Card 1: Placa de vídeo primeiro]</div>
+        <div class="wire-box">[Card 2: Monitor na medida]</div>
+        <div class="wire-box">[Card 3: Conforto conta]</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">[Rodapé Institucional - Projeto Final DI 2/2026]</div>
+  </footer>
+</body>
+</html>
