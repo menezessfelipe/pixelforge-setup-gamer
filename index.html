@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PixelForge: guia de setup gamer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F3FB;--surface:#FFFFFF;--ink:#1B1740;--muted:#4A4573;--brand:#4B2FD0;--brand-ink:#FFFFFF;--hot:#D6246E;--line:#C9C4E6;--danger:#B3123F;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14102B;--surface:#1D1840;--ink:#EEEBFF;--muted:#B7B2DA;--brand:#6FE3F5;--brand-ink:#14102B;--hot:#FF6FAE;--line:#3A3470;--danger:#FF9DB8;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14102B;--surface:#1D1840;--ink:#EEEBFF;--muted:#B7B2DA;--brand:#6FE3F5;--brand-ink:#14102B;--hot:#FF6FAE;--line:#3A3470;--danger:#FF9DB8;color-scheme:dark}
+:root[data-contrast="high"]{--bg:#fff;--surface:#fff;--ink:#000;--muted:#000;--line:#000;--brand:#2A1590;--brand-ink:#fff;--danger:#7A0000}
+:root[data-theme="dark"][data-contrast="high"]{--bg:#000;--surface:#000;--ink:#fff;--muted:#fff;--line:#fff;--brand:#8FF0FF;--brand-ink:#000;--danger:#FFB4C8}
+html{font-size:calc(100% * var(--fs,1));scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Figtree,system-ui,sans-serif;line-height:1.6}
+h1,h2,h3{font-family:"Chakra Petch",system-ui,sans-serif;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2.2rem,6vw,3.7rem);max-width:15ch}
+h2{font-size:clamp(1.6rem,3.5vw,2.2rem)}h3{font-size:1.2rem}
+p{max-width:65ch;margin:0 0 1em}
+a{color:var(--brand)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+section{padding:3rem 0}
+:focus-visible{outline:3px solid var(--hot);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:0;background:var(--brand);color:var(--brand-ink);padding:.6rem 1rem;z-index:30}
+.skip:focus{left:.5rem;top:.5rem}
+header.top{border-bottom:1px solid var(--line);background:var(--surface);position:sticky;top:env(safe-area-inset-top,0px);z-index:10}
+header.top .wrap{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding-top:.6rem;padding-bottom:.6rem}
+.logo{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:1.35rem;text-decoration:none;color:var(--ink);margin-right:auto}
+nav a{margin-right:1rem;text-decoration:none;color:var(--ink);font-weight:600}
+nav a:hover{text-decoration:underline}
+.btn{font:inherit;font-weight:700;border:2px solid var(--brand);background:var(--brand);color:var(--brand-ink);padding:.55rem 1.1rem;border-radius:6px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.ghost{background:transparent;color:var(--brand)}
+.btn:hover{filter:brightness(1.1)}
+.hero .wrap{display:grid;gap:2rem;grid-template-columns:1.1fr .9fr;align-items:center}
+.hero p.lead{font-size:1.2rem;color:var(--muted)}
+.hero svg{width:100%;height:auto;display:block}
+.grid{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:1.2rem}
+.card .tag{display:inline-block;font-size:.85rem;font-weight:700;color:var(--brand);border:1px solid var(--brand);border-radius:4px;padding:0 .5rem;margin-bottom:.5rem}
+.explain{border-left:6px solid var(--hot)}
+.tools{display:flex;gap:1rem;flex-wrap:wrap;align-items:end;margin-bottom:1rem}
+.tools input[type=search]{min-width:240px}
+[role=tablist]{display:flex;gap:.4rem;flex-wrap:wrap}
+[role=tab]{font:inherit;font-weight:700;border:2px solid var(--line);background:var(--surface);color:var(--ink);padding:.45rem 1rem;border-radius:6px 6px 0 0;cursor:pointer}
+[role=tab][aria-selected=true]{border-color:var(--brand);background:var(--brand);color:var(--brand-ink)}
+label{display:block;font-weight:700;margin-bottom:.25rem}
+input,select,textarea{font:inherit;width:100%;padding:.6rem .75rem;border:2px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink)}
+.field{margin-bottom:1rem}
+.err{color:var(--danger);font-weight:600;min-height:1.4em;margin:.2rem 0 0;font-size:.95rem}
+.status{font-weight:700;color:var(--brand)}
+.carousel{background:var(--surface);border:2px solid var(--line);border-radius:12px;overflow:hidden}
+.slide{display:none;margin:0}.slide.on{display:block}
+.slide svg{width:100%;height:auto;display:block}
+.slide figcaption{padding:.8rem 1.2rem;font-weight:600}
+.ctrl{display:flex;align-items:center;justify-content:center;gap:.6rem;padding:.6rem}
+.dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--brand);background:transparent;padding:0;cursor:pointer}
+.dot[aria-current=true]{background:var(--brand)}
+.two{display:grid;gap:2rem;grid-template-columns:1fr 1fr}
+footer{background:var(--surface);border-top:1px solid var(--line);padding:2rem 0;margin-top:2rem}
+footer .wrap{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+footer p{font-size:.95rem;color:var(--muted)}
+.a11y-btn{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:20}
+#a11y{position:fixed;right:1rem;bottom:calc(4.5rem + env(safe-area-inset-bottom,0px));z-index:20;width:min(320px,calc(100% - 2rem));background:var(--surface);border:2px solid var(--brand);border-radius:12px;padding:1rem;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+#a11y[hidden],#login[hidden],#site[hidden]{display:none}
+#a11y .row{display:flex;gap:.5rem;flex-wrap:wrap;margin:.4rem 0 .8rem}
+.narrow{max-width:440px}
+@media (max-width:760px){.hero .wrap,.two{grid-template-columns:1fr}}
+@keyframes draw{from{stroke-dashoffset:600}to{stroke-dashoffset:0}}
+.line{stroke-dasharray:600;animation:draw 2.4s ease-out both}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+:root[data-motion="off"] *{animation:none!important;transition:none!important}
+</style>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="top"><div class="wrap">
+<a class="logo" href="#inicio">PixelForge</a>
+<nav aria-label="Principal"><a href="#glossario">Glossário</a><a href="#setups">Setups</a><a href="#contato">Contato</a></nav>
+<a class="btn ghost" href="#login">Entrar</a>
+</div></header>
+
+<main id="conteudo">
+<div id="site">
+<section class="hero" id="inicio"><div class="wrap">
+<div>
+<h1>Monte um setup que roda o que você joga</h1>
+<p class="lead">Um guia em português para entender hardware e periféricos gamer, sem decorar siglas: do FPS ao monitor certo para a sua placa de vídeo.</p>
+<a class="btn" href="#glossario">Entender os termos</a>
+</div>
+<div role="img" aria-label="Ilustração de um monitor gamer exibindo um gráfico de FPS e o valor 144">
+<svg viewBox="0 0 360 270" aria-hidden="true">
+<rect x="10" y="10" width="340" height="205" rx="14" fill="#241F4D"/>
+<rect x="22" y="22" width="316" height="181" rx="6" fill="#0B0A1F"/>
+<g stroke="#2E2A63" stroke-width="1"><path d="M22 67H338M22 112H338M22 157H338M101 22V203M180 22V203M259 22V203"/></g>
+<polyline class="line" fill="none" stroke="#6FE3F5" stroke-width="3" stroke-linejoin="round" points="30,150 60,120 90,135 120,90 150,100 180,70 210,85 240,60 270,72 300,48 330,55"/>
+<text x="34" y="52" fill="#FF6FAE" font-family="Chakra Petch,sans-serif" font-size="30" font-weight="700">144 FPS</text>
+<path d="M150 215h60l10 30H140z" fill="#241F4D"/><rect x="100" y="245" width="160" height="12" rx="6" fill="#241F4D"/>
+</svg></div>
+</div></section>
+
+<section id="como"><div class="wrap">
+<h2>Por onde começar</h2>
+<div class="grid">
+<article class="card explain"><h3>Placa de vídeo primeiro</h3><p>Na maioria dos jogos, é a peça que mais pesa no FPS. Defina o orçamento dela antes das demais.</p></article>
+<article class="card explain"><h3>Monitor na medida</h3><p>Um monitor de taxa alta só vale a pena se o PC entregar FPS para acompanhar. Combine resolução e placa de vídeo.</p></article>
+<article class="card explain"><h3>Conforto conta</h3><p>Teclado, mouse e cadeira definem quantas horas você aguenta jogar. Escolha pelo que cabe na sua mão e na sua mesa.</p></article>
+</div></div></section>
+
+<section id="glossario"><div class="wrap">
+<h2>Glossário gamer</h2>
+<p>Busque um termo ou filtre por categoria.</p>
+<div class="tools">
+<div><label for="q">Buscar termo</label><input id="q" type="search" placeholder="Ex.: FPS" autocomplete="off"></div>
+<p id="count" class="status" role="status" aria-live="polite" style="margin:0"></p>
+</div>
+<div role="tablist" aria-label="Filtrar por categoria" id="tabs">
+<button role="tab" data-f="todos" aria-selected="true" aria-controls="lista">Todos</button>
+<button role="tab" data-f="Desempenho" aria-selected="false" tabindex="-1" aria-controls="lista">Desempenho</button>
+<button role="tab" data-f="Imagem" aria-selected="false" tabindex="-1" aria-controls="lista">Imagem</button>
+<button role="tab" data-f="Hardware" aria-selected="false" tabindex="-1" aria-controls="lista">Hardware</button>
+<button role="tab" data-f="Periféricos" aria-selected="false" tabindex="-1" aria-controls="lista">Periféricos</button>
+</div>
+<div id="lista" class="grid" role="tabpanel" style="padding-top:1rem"></div>
+</div></section>
+
+<section id="setups"><div class="wrap">
+<h2>Ideias de setup</h2>
+<div class="carousel" role="group" aria-roledescription="carrossel" aria-label="Galeria de setups">
+<div id="slides"></div>
+<div class="ctrl">
+<button class="btn ghost" id="prev" aria-label="Imagem anterior">Anterior</button>
+<span id="dots" style="display:flex;gap:.5rem"></span>
+<button class="btn ghost" id="next" aria-label="Próxima imagem">Próxima</button>
+</div></div>
+</div></section>
+
+<section id="contato"><div class="wrap two">
+<div>
+<h2>Fale com a gente</h2>
+<p>Ficou com dúvida sobre uma peça ou quer sugerir um termo para o glossário? Escreva por aqui.</p>
+</div>
+<form id="form" novalidate>
+<div class="field"><label for="nome">Nome</label><input id="nome" autocomplete="name" aria-describedby="e-nome"><p class="err" id="e-nome"></p></div>
+<div class="field"><label for="email">E-mail</label><input id="email" type="email" autocomplete="email" aria-describedby="e-email"><p class="err" id="e-email"></p></div>
+<div class="field"><label for="assunto">Assunto</label><select id="assunto"><option>Dúvida sobre hardware</option><option>Sugestão de termo</option><option>Outro assunto</option></select></div>
+<div class="field"><label for="msg">Mensagem</label><textarea id="msg" rows="4" aria-describedby="e-msg"></textarea><p class="err" id="e-msg"></p></div>
+<button class="btn" type="submit">Enviar mensagem</button>
+<p class="status" id="ok" role="status" aria-live="polite"></p>
+</form>
+</div></section>
+</div>
+
+<section id="login" hidden><div class="wrap narrow">
+<h2>Entrar</h2>
+<p>Acesse para salvar seus setups favoritos. Esta página é uma demonstração: nenhum dado é enviado.</p>
+<form id="fl" novalidate>
+<div class="field"><label for="le">E-mail</label><input id="le" type="email" autocomplete="email"></div>
+<div class="field"><label for="ls">Senha</label><input id="ls" type="password" autocomplete="current-password">
+<button type="button" class="btn ghost" id="ver" aria-pressed="false" style="margin-top:.5rem">Mostrar senha</button></div>
+<button class="btn" type="submit">Entrar</button>
+<p class="err" id="lerr" role="alert"></p>
+<p class="status" id="lok" role="status"></p>
+</form>
+<p><a href="#inicio">Voltar ao site</a></p>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+<div><h3>PixelForge</h3><p>Guia de hardware e periféricos para quem joga no PC.</p></div>
+<div><h3>Navegação</h3><p><a href="#glossario">Glossário</a><br><a href="#setups">Setups</a><br><a href="#contato">Contato</a></p></div>
+<div><h3>Projeto</h3><p>Projeto Final de Desenvolvimento de Interfaces, 2/2026.<br>Felipe Menezes da Costa Marinello, RA 22602246.</p></div>
+</div></footer>
+
+<button class="btn a11y-btn" id="a11yBtn" aria-expanded="false" aria-controls="a11y">Acessibilidade</button>
+<div id="a11y" hidden role="dialog" aria-label="Opções de acessibilidade">
+<h3>Acessibilidade</h3>
+<div class="row"><button class="btn ghost" id="theme" aria-pressed="false">Modo escuro</button><button class="btn ghost" id="contrast" aria-pressed="false">Alto contraste</button></div>
+<div class="row"><button class="btn ghost" id="fm" aria-label="Diminuir fonte">A−</button><button class="btn ghost" id="fp" aria-label="Aumentar fonte">A+</button><button class="btn ghost" id="fr">Fonte padrão</button></div>
+<div class="row"><button class="btn ghost" id="motion" aria-pressed="false">Pausar animações</button></div>
+</div>
+
+<script>
+const R=document.documentElement,$=s=>document.querySelector(s);
+const terms=[
+{n:"FPS",c:"Desempenho",d:"Quadros por segundo. Quanto maior, mais fluida a imagem. Para muitos jogadores, 60 FPS é o mínimo confortável."},
+{n:"Latência",c:"Desempenho",d:"Atraso entre a sua ação e a resposta na tela. Pesa mais em jogos competitivos."},
+{n:"DLSS e FSR",c:"Desempenho",d:"Tecnologias que reconstroem a imagem em resolução maior a partir de uma menor, ganhando FPS com pouca perda de qualidade."},
+{n:"Taxa de atualização (Hz)",c:"Imagem",d:"Quantas vezes o monitor atualiza a imagem por segundo. Um monitor de 144 Hz só mostra seu potencial se o PC entregar FPS próximo disso."},
+{n:"Resolução",c:"Imagem",d:"Quantidade de pixels da imagem, como 1080p, 1440p e 4K. Mais pixels deixam tudo mais nítido, mas exigem mais da placa de vídeo."},
+{n:"Ray tracing",c:"Imagem",d:"Técnica que simula o caminho da luz para criar reflexos e sombras realistas. Exige muito da placa de vídeo."},
+{n:"GPU (placa de vídeo)",c:"Hardware",d:"Desenha as imagens do jogo. Na maioria dos casos, é a peça que mais influencia o FPS."},
+{n:"Memória RAM",c:"Hardware",d:"Memória de trabalho do PC. Hoje, 16 GB é um ponto de partida comum para jogar."},
+{n:"SSD NVMe",c:"Hardware",d:"Tipo de SSD ligado direto à placa-mãe. Carrega jogos bem mais rápido que um HD."},
+{n:"Teclado mecânico",c:"Periféricos",d:"Cada tecla tem um interruptor próprio. Ele muda o som, o toque e a durabilidade."},
+{n:"DPI do mouse",c:"Periféricos",d:"Sensibilidade do mouse: quanto o cursor anda a cada movimento da mão. Ajuste ao seu estilo de jogo."}];
+function desk(bg,glow,mons,kx){return `<svg viewBox="0 0 600 260" aria-hidden="true"><rect width="600" height="260" fill="${bg}"/><ellipse cx="300" cy="170" rx="260" ry="90" fill="${glow}" opacity=".18"/>${mons.map(m=>`<rect x="${m[0]}" y="${190-m[2]}" width="${m[1]}" height="${m[2]}" rx="8" fill="#0B0A1F" stroke="${glow}" stroke-width="3"/><rect x="${m[0]+8}" y="${198-m[2]}" width="${m[1]-16}" height="${m[2]-16}" rx="3" fill="${glow}" opacity=".3"/><rect x="${m[0]+m[1]/2-6}" y="190" width="12" height="16" fill="#2A2650"/>`).join("")}<rect y="204" width="600" height="56" fill="#241F4D"/><rect x="${kx}" y="222" width="150" height="18" rx="4" fill="#0B0A1F" stroke="${glow}"/><rect x="${kx+190}" y="222" width="22" height="30" rx="11" fill="#0B0A1F" stroke="${glow}"/></svg>`}
+const slides=[
+{t:"Setup compacto: um monitor, teclado e mouse bem posicionados.",s:desk("#1D1840","#6FE3F5",[[190,220,120]],200)},
+{t:"Setup duplo: o jogo em um monitor, chat e música no outro.",s:desk("#2A1747","#FF6FAE",[[90,200,110],[310,200,110]],170)},
+{t:"Setup ultrawide: um monitor largo para corrida e simulação.",s:desk("#10213F","#8F7CFF",[[130,340,100]],200)}];
+let si=0;
+$("#slides").innerHTML=slides.map((x,i)=>`<figure class="slide" aria-roledescription="slide" aria-label="${i+1} de ${slides.length}">${x.s}<figcaption>${x.t}</figcaption></figure>`).join("");
+$("#dots").innerHTML=slides.map((x,i)=>`<button class="dot" aria-label="Ir para imagem ${i+1}" data-i="${i}"></button>`).join("");
+function show(i){si=(i+slides.length)%slides.length;document.querySelectorAll(".slide").forEach((e,k)=>e.classList.toggle("on",k===si));document.querySelectorAll(".dot").forEach((e,k)=>e.setAttribute("aria-current",k===si))}
+$("#prev").onclick=()=>show(si-1);$("#next").onclick=()=>show(si+1);
+$("#dots").onclick=e=>{if(e.target.dataset.i)show(+e.target.dataset.i)};
+$(".carousel").addEventListener("keydown",e=>{if(e.key==="ArrowLeft")show(si-1);if(e.key==="ArrowRight")show(si+1)});
+show(0);
+const norm=s=>s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+let filtro="todos";
+function lista(){const q=norm($("#q").value.trim());
+const r=terms.filter(p=>(filtro==="todos"||p.c===filtro)&&norm(p.n).includes(q));
+$("#lista").innerHTML=r.length?r.map(p=>`<article class="card"><span class="tag">${p.c}</span><h3>${p.n}</h3><p>${p.d}</p></article>`).join(""):`<p>Nenhum termo encontrado. Tente outra palavra ou limpe a busca.</p>`;
+$("#count").textContent=r.length+(r.length===1?" termo encontrado":" termos encontrados")}
+$("#q").oninput=lista;
+const tabs=[...document.querySelectorAll("[role=tab]")];
+function tab(i){tabs.forEach((t,k)=>{t.setAttribute("aria-selected",k===i);t.tabIndex=k===i?0:-1});filtro=tabs[i].dataset.f;tabs[i].focus();lista()}
+tabs.forEach((t,i)=>{t.onclick=()=>tab(i);t.onkeydown=e=>{const n=tabs.length;if(e.key==="ArrowRight")tab((i+1)%n);if(e.key==="ArrowLeft")tab((i+n-1)%n)}});
+lista();
+function chk(id,ok,msg){$("#e-"+id).textContent=ok?"":msg;$("#"+id).setAttribute("aria-invalid",!ok);return ok}
+$("#form").onsubmit=e=>{e.preventDefault();$("#ok").textContent="";
+const a=chk("nome",$("#nome").value.trim().length>=2,"Informe seu nome com pelo menos 2 letras.");
+const b=chk("email",/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($("#email").value),"Informe um e-mail válido, como nome@exemplo.com.");
+const c=chk("msg",$("#msg").value.trim().length>=10,"Escreva uma mensagem com pelo menos 10 caracteres.");
+if(a&&b&&c){$("#ok").textContent="Mensagem enviada. Obrigado pelo contato!";e.target.reset()}};
+$("#fl").onsubmit=e=>{e.preventDefault();$("#lok").textContent="";
+if(!$("#le").value.trim()||!$("#ls").value){$("#lerr").textContent="Preencha e-mail e senha para entrar.";return}
+$("#lerr").textContent="";$("#lok").textContent="Login de demonstração concluído."};
+$("#ver").onclick=e=>{const p=$("#ls"),on=p.type==="password";p.type=on?"text":"password";e.target.textContent=on?"Ocultar senha":"Mostrar senha";e.target.setAttribute("aria-pressed",on)};
+function route(){const l=location.hash==="#login";$("#login").hidden=!l;$("#site").hidden=l;if(l)$("#le").focus()}
+addEventListener("hashchange",route);route();
+const st={theme:matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light",fs:1,hc:false,mo:false};
+try{Object.assign(st,JSON.parse(localStorage.getItem("pf")||"{}"))}catch(e){}
+function apply(){R.dataset.theme=st.theme;if(st.hc)R.dataset.contrast="high";else delete R.dataset.contrast;R.dataset.motion=st.mo?"off":"on";R.style.setProperty("--fs",st.fs);
+$("#theme").textContent=st.theme==="dark"?"Modo claro":"Modo escuro";$("#theme").setAttribute("aria-pressed",st.theme==="dark");
+$("#contrast").setAttribute("aria-pressed",st.hc);$("#motion").setAttribute("aria-pressed",st.mo);
+try{localStorage.setItem("pf",JSON.stringify(st))}catch(e){}}
+$("#theme").onclick=()=>{st.theme=st.theme==="dark"?"light":"dark";apply()};
+$("#contrast").onclick=()=>{st.hc=!st.hc;apply()};
+$("#motion").onclick=()=>{st.mo=!st.mo;apply()};
+$("#fp").onclick=()=>{st.fs=Math.min(1.5,+(st.fs+.1).toFixed(1));apply()};
+$("#fm").onclick=()=>{st.fs=Math.max(.9,+(st.fs-.1).toFixed(1));apply()};
+$("#fr").onclick=()=>{st.fs=1;apply()};
+$("#a11yBtn").onclick=e=>{const h=$("#a11y").hidden;$("#a11y").hidden=!h;e.target.setAttribute("aria-expanded",h)};
+apply();
+</script>
+</body>
+</html>
